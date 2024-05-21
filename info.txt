@@ -1,0 +1,16 @@
+In Git, a "detached HEAD" state occurs when you are not on a named branch. Instead, the HEAD pointer is directly pointing to a specific commit, typically because you've checked out a commit by its hash, a tag, or a remote branch. This can be useful for various purposes, such as viewing the state of the repository at a certain point in time or making experimental changes without affecting any branches.
+
+How "Detached HEAD" Works
+Normal HEAD State:
+Normally, HEAD points to the latest commit of the currently checked-out branch. For example, if you're on the main branch, HEAD points to main, and main points to the latest commit on that branch.
+Detached HEAD State:
+When you check out a specific commit (e.g., git checkout <commit-hash>), HEAD is detached from any branch and points directly to that commit. No branch will automatically advance when you make new commits.
+Consequences of a Detached HEAD
+Making Changes: You can still make changes and commit them. However, these commits are not part of any branch. They exist in the repository but are not reachable unless you create a branch from the current state.
+
+Losing Commits: If you don't create a branch or tag from the detached HEAD state, and you later switch to another branch, the commits you made while HEAD was detached may become unreachable and can be garbage collected by Git.
+
+Use Cases for Detached HEAD
+Exploration: Viewing the state of the project at a previous commit or tag.
+Testing: Making experimental changes without affecting any branches.
+Bisecting: Using git bisect to find a commit that introduced a bug.
